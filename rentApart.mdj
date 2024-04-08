@@ -7054,24 +7054,6 @@
 			]
 		},
 		{
-			"_type": "FCFlowchart",
-			"_id": "AAAAAAGOv/26xEKsEI4=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Flowchart1",
-			"ownedElements": [
-				{
-					"_type": "FCFlowchartDiagram",
-					"_id": "AAAAAAGOv/26xEKtX3Y=",
-					"_parent": {
-						"$ref": "AAAAAAGOv/26xEKsEI4="
-					},
-					"name": "FlowchartDiagram1"
-				}
-			]
-		},
-		{
 			"_type": "UMLCollaboration",
 			"_id": "AAAAAAGOv/8EDUL7tb8=",
 			"_parent": {
@@ -7156,7 +7138,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Activity1",
+			"name": "Reservar habitacion",
 			"ownedElements": [
 				{
 					"_type": "UMLActivityDiagram",
@@ -7177,10 +7159,75 @@
 							},
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 200,
-							"top": 304,
+							"left": 88,
+							"top": 256,
 							"width": 20,
 							"height": 20
+						},
+						{
+							"_type": "UMLFrameView",
+							"_id": "AAAAAAGOwBcVy0S6geU=",
+							"_parent": {
+								"$ref": "AAAAAAGOwAIWzURzW7o="
+							},
+							"model": {
+								"$ref": "AAAAAAGOwAIWzERy3N8="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGOwBcVy0S7s9M=",
+									"_parent": {
+										"$ref": "AAAAAAGOwBcVy0S6geU="
+									},
+									"font": "Arial;13;0",
+									"left": 92.341796875,
+									"top": 229,
+									"width": 116.6162109375,
+									"height": 13,
+									"text": "Reservar habitacion"
+								},
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGOwBcVy0S8OgM=",
+									"_parent": {
+										"$ref": "AAAAAAGOwBcVy0S6geU="
+									},
+									"font": "Arial;13;1",
+									"left": 69,
+									"top": 229,
+									"width": 18.341796875,
+									"height": 13,
+									"text": "act"
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 64,
+							"top": 224,
+							"width": 657,
+							"height": 729,
+							"nameLabel": {
+								"$ref": "AAAAAAGOwBcVy0S7s9M="
+							},
+							"frameTypeLabel": {
+								"$ref": "AAAAAAGOwBcVy0S8OgM="
+							}
+						},
+						{
+							"_type": "UMLControlNodeView",
+							"_id": "AAAAAAGOwBj1GEVGZ4s=",
+							"_parent": {
+								"$ref": "AAAAAAGOwAIWzURzW7o="
+							},
+							"model": {
+								"$ref": "AAAAAAGOwBj1F0VEwUo="
+							},
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 632,
+							"top": 896,
+							"width": 26,
+							"height": 26
 						}
 					]
 				}
@@ -7193,6 +7240,14 @@
 						"$ref": "AAAAAAGOwAIWzERy3N8="
 					},
 					"name": "InitialNode1"
+				},
+				{
+					"_type": "UMLActivityFinalNode",
+					"_id": "AAAAAAGOwBj1F0VEwUo=",
+					"_parent": {
+						"$ref": "AAAAAAGOwAIWzERy3N8="
+					},
+					"name": "ActivityFinalNode1"
 				}
 			]
 		}
