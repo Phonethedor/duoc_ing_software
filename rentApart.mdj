@@ -15235,6 +15235,32 @@
 					]
 				}
 			]
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAGOwGustqu20hE=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model3"
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAGOwGyttqzkbG4=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model4",
+			"ownedElements": [
+				{
+					"_type": "UMLComponentDiagram",
+					"_id": "AAAAAAGOwGyttqzlfj8=",
+					"_parent": {
+						"$ref": "AAAAAAGOwGyttqzkbG4="
+					},
+					"name": "diagrama_componentes"
+				}
+			]
 		}
 	]
 }
