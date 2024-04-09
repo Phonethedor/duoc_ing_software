@@ -9471,6 +9471,354 @@
 					}
 				}
 			]
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAGOwEHKn0j9oWY=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model2",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAGOwEHKn0j+Eh0=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "diagrama_clases"
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGOwEXMaEkhf8M=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "Hotel",
+					"ownedElements": [
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAGOwE2zbkp4JiA=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwE2zbkp5qkk=",
+								"_parent": {
+									"$ref": "AAAAAAGOwE2zbkp4JiA="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEXMaEkhf8M="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwE2zbkp6MoE=",
+								"_parent": {
+									"$ref": "AAAAAAGOwE2zbkp4JiA="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEpr80mbW4A="
+								}
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwEZEbklRCfM=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "Nombre",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwEa01UlYXWw=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "Direccion",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwEbeUklfax0=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "Categoria",
+							"visibility": "private"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEePeklukB0=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "Hotel"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEX6M0lLHJg=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "getNombre"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEjas0l/kms=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "setNombre"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEcvEklnkYs=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "getDireccion"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEj8qkmGXeY=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "setDireccion"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEirE0l4Hc0=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "getCategoria"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEli40mPw6c=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEXMaEkhf8M="
+							},
+							"name": "setCategoria"
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGOwEpr80mbW4A=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "Habitacion",
+					"ownedElements": [
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAGOwFAmz0vfqHI=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEpr80mbW4A="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwFAmz0vgQho=",
+								"_parent": {
+									"$ref": "AAAAAAGOwFAmz0vfqHI="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEpr80mbW4A="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwFAmz0vhlPM=",
+								"_parent": {
+									"$ref": "AAAAAAGOwFAmz0vfqHI="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEsri0nRZIc="
+								},
+								"aggregation": "shared"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwEqXv0nFr14=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEpr80mbW4A="
+							},
+							"name": "Attribute1",
+							"type": ""
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEqsXknLr08=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEpr80mbW4A="
+							},
+							"name": "Operation1"
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGOwEsri0nRZIc=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "Reserva",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwEtRNkn7ffM=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEsri0nRZIc="
+							},
+							"name": "Attribute1",
+							"type": ""
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwEte3koBfvs=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEsri0nRZIc="
+							},
+							"name": "Operation1"
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGOwExzf0oHdSU=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "Cliente",
+					"ownedElements": [
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAGOwE/i8EtJT8A=",
+							"_parent": {
+								"$ref": "AAAAAAGOwExzf0oHdSU="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwE/i8EtKvUg=",
+								"_parent": {
+									"$ref": "AAAAAAGOwE/i8EtJT8A="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwExzf0oHdSU="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwE/i8EtLDqk=",
+								"_parent": {
+									"$ref": "AAAAAAGOwE/i8EtJT8A="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEsri0nRZIc="
+								},
+								"aggregation": "composite"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwE0QNkpb9+4=",
+							"_parent": {
+								"$ref": "AAAAAAGOwExzf0oHdSU="
+							},
+							"name": "Attribute1",
+							"type": ""
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwE0aTUphUbM=",
+							"_parent": {
+								"$ref": "AAAAAAGOwExzf0oHdSU="
+							},
+							"name": "Operation1"
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGOwEzmxEoxuEc=",
+					"_parent": {
+						"$ref": "AAAAAAGOwEHKn0j9oWY="
+					},
+					"name": "Metodo de pago",
+					"ownedElements": [
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAGOwFB6REzd3Ek=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEzmxEoxuEc="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwFB6REze5m0=",
+								"_parent": {
+									"$ref": "AAAAAAGOwFB6REzd3Ek="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwEzmxEoxuEc="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAGOwFB6REzf/WI=",
+								"_parent": {
+									"$ref": "AAAAAAGOwFB6REzd3Ek="
+								},
+								"reference": {
+									"$ref": "AAAAAAGOwExzf0oHdSU="
+								},
+								"aggregation": "shared"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOwE0lbUpn3BY=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEzmxEoxuEc="
+							},
+							"name": "Attribute1",
+							"type": ""
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGOwE0wBUptPsY=",
+							"_parent": {
+								"$ref": "AAAAAAGOwEzmxEoxuEc="
+							},
+							"name": "Operation1"
+						}
+					]
+				}
+			]
 		}
 	]
 }
