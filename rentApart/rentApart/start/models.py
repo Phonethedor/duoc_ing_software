@@ -47,7 +47,7 @@ class Reserva(models.Model):
 class Informe(models.Model):
     fecha = models.DateField()
     descripcion = models.TextField()
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.usuario.nombre + ' ' + self.usuario.apellido
