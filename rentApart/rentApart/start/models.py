@@ -19,7 +19,6 @@ class CategoriaHabitacion(models.Model):
 
 class Habitacion(models.Model):
     nombre = models.CharField(max_length=50)
-    descripcion = models.TextField()
     precio = models.FloatField()
     disponible = models.BooleanField()
     categoria = models.ForeignKey(CategoriaHabitacion, on_delete=models.CASCADE)
