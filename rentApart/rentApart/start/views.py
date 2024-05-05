@@ -4,7 +4,6 @@ from .models import *
 '''
     TODO:
     - implementar registro de habitaciones (admin)
-    - implementar registro  de usuarios (admin)
     - implementar modificacion de usuario (admin)
     - implementar modificacion de habitaciones (admin)
     - implementar vista de historial de reservas (admin)
@@ -196,3 +195,36 @@ def admin_register(request):
 
     Usuario.objects.create(email=correo, nombre=nombre, apellido=apellido, password = password, tipo=tipo)
     return redirect('administrar')
+
+# metodo para mostrar formulario de registro de habitacion (admin)
+def admin_crear_habitacion(request):
+    user_id= request.session.get('id')
+    Categorias = CategoriaHabitacion.objects.all()
+    if user_id  is not None:
+            
+            usuario = Usuario.objects.get(id=user_id) 
+            if usuario:
+                context = {
+                    "usuario": usuario,
+                    "categorias": Categorias,
+                }
+                return render(request, 'admin_crear_habitacion.html', context)
+    return redirect('index')
+
+# Metodo de registro de habitacion (admin), redirecciona a administrar
+def admin_register_habitacion(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+            
+            usuario = Usuario.objects.get(id=user_id) 
+            if usuario:
+                nombre = request.POST['nombre']
+                precio = request.POST['precio']
+                disponible = True
+                categoria_habitacion = request.POST['categoria']
+                categoria = CategoriaHabitacion.objects.get(id=categoria_habitacion)
+
+                Habitacion.objects.create(nombre=nombre, precio=precio, disponible=disponible, categoria=categoria)
+                return redirect('administrar')
+    return redirect('index')

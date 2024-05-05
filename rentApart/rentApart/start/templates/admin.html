@@ -74,7 +74,7 @@
         {% else %}
             <h2>No hay habitaciones</h2>
         {% endif %}
-            <a href="" class="btn btn-primary my-2">Agregar habitacion</a>
+            <a href="{% url 'admin_crear_habitacion' %}" class="btn btn-primary my-2">Agregar habitacion</a>
     {% else %}
         <h1>Debe iniciar sesión como administrador</h1>
     {% endif %}

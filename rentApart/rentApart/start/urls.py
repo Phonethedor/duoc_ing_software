@@ -16,4 +16,6 @@ urlpatterns = [
     path('administrar/', administrar, name='administrar'),
     path('admin_crear_cuenta/', admin_crear_cuenta, name='admin_crear_cuenta'),
     path('admin_register/', admin_register, name='admin_register'),
+    path('admin_crear_habitacion/', admin_crear_habitacion, name='admin_crear_habitacion'),
+    path('admin_register_habitacion/', admin_register_habitacion, name='admin_register_habitacion'),
 ]
