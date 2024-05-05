@@ -22,23 +22,20 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if usuario %}
                     <li class="nav-item">
-                        <p class="nav-link" href="">Bienvenido {{ usuario.nombre }} {{ usuario.apellido }}</p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Cerrar sesión</a>
+                        <p class="nav-link ml-1 fw-bold">Bienvenido {{ usuario.nombre }} {{ usuario.apellido }} </p>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Dropdown
+                            acciones
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'reserva' %}">Ver reservas</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Detalles de cuenta</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Detalles de cuenta</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>                            
                         </ul>
                     </li>
                     {% if usuario.tipo == 1 %}
@@ -48,7 +45,7 @@
                     {% endif %}
                     {% else %}
                     <li class="nav-item mr-3">
-                        <a class="nav-link" href="{% url 'registro' %}">Registro de usuario</a>
+                        <a class="nav-link fw-bold" href="{% url 'registro' %}">Registro de usuario</a>
                     </li>     
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>

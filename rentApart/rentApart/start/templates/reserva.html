@@ -4,7 +4,7 @@
 <div class="container pl-5">
     {% if usuario %}
     <h3>Reserva</h3>
-    <form action="{% url 'reserva' %}" method="POST">
+    <form action="{% url 'reservar' %}" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label for="fecha_inicio" class="form-label">Fecha de inicio</label>
@@ -18,7 +18,27 @@
             <label for="habitacion" class="form-label">Habitación</label>
             <select class="form-select" id="habitacion" name="habitacion">
                 {% for habitacion in habitaciones %}
-                <option value="{{ habitacion.id }}">{{ habitacion.nombre }}</option>
+                <option value="{{ habitacion.id }}">Numero: {{ habitacion.nombre }}    || <br> 
+                    {% if habitacion.disponible %}
+                    Disponibilidad: Disponible    ||<br> 
+                    {% else %}
+                    Disponibilidad: No Disponible    ||<br> 
+                    {% endif %}
+                    Descripcion: {{ habitacion.categoria.descripcion }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="metodo_pago" class="form-label">Metodo de pago</label>
+            <select class="form-select" id="metodo_pago" name="metodo_pago">
+                {% for metodo in metodos_pago %}
+                    {% if metodo.id == 4 %}
+                        {% if usuario.tipo == 1 %}
+                            <option value="{{ metodo.id }}">{{ metodo.nombre }}    || <br>{{ metodo.descripcion }}</option>
+                        {% endif %}
+                    {% else %}
+                        <option value="{{ metodo.id }}">{{ metodo.nombre }}    || <br>{{ metodo.descripcion }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
