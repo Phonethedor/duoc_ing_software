@@ -10,6 +10,7 @@
                     <th scope="col">Fecha de inicio</th>
                     <th scope="col">Fecha de fin</th>
                     <th scope="col">Habitación</th>
+                    <th scope="col">Descripcion</th>
                     <th scope="col">Metodo de pago</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                     <td>{{ reserva.fecha_inicio }}</td>
                     <td>{{ reserva.fecha_fin }}</td>
                     <td>{{ reserva.habitacion.nombre }}</td>
+                    <td>{{ reserva.habitacion.categoria.descripcion }}</td>
                     <td>{{ reserva.metodo_pago.nombre }}</td>
                 </tr>
                 {% endfor %}
