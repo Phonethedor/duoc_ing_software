@@ -16,4 +16,6 @@ urlpatterns = [
     path('ingresar/', ingresar, name='ingresar'),
     path('login/', login, name='login'),
     path('logout/', logout, name='logout'),
+    path('cuenta/', cuenta, name='cuenta'),
+    path('update_user/', update_user, name='update_user'),
 ]

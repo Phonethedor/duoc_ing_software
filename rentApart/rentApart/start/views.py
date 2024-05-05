@@ -118,3 +118,38 @@ def  login(request):
 def logout(request):
     request.session.flush()
     return redirect('index')
+
+# Metodo para mostrar cuenta de usuario
+def cuenta(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+
+        usuario = Usuario.objects.get(id=user_id) 
+        if usuario:
+            context = {
+                "usuario": usuario,
+            }
+            return render(request, 'cuenta.html', context)
+    return redirect('index')
+
+# Metodo para actualizar usuario
+def update_user(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+
+        usuario = Usuario.objects.get(id=user_id) 
+        if usuario:
+            correo = request.POST['email']
+            nombre = request.POST['nombre']
+            apellido = request.POST['apellido']
+            password = request.POST['password']
+
+            usuario.email = correo
+            usuario.nombre = nombre
+            usuario.apellido = apellido
+            usuario.password = password
+            usuario.save()
+            return redirect('cuenta')
+    return redirect('index')

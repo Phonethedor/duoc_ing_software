@@ -5,7 +5,7 @@
         {% if usuario %}
         <h1>Cuenta</h1>
         <p>Esta es la página de su cuenta</p>
-        <form action="" method="POST">
+        <form action="{% url 'update_user' %}" method="POST">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="text" class="form-control" id="password" name="password" value="{{ usuario.password }}">
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         {% else %}
