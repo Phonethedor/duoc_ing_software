@@ -4,7 +4,7 @@ from .models import *
 '''
     TODO:
     - implementar registro de habitaciones (admin)
-    - implementar modificacion de usuario (comun)
+    - implementar registro  de usuarios (admin)
     - implementar modificacion de usuario (admin)
     - implementar modificacion de habitaciones (admin)
     - implementar vista de historial de reservas (admin)
@@ -152,4 +152,22 @@ def update_user(request):
             usuario.password = password
             usuario.save()
             return redirect('cuenta')
+    return redirect('index')
+
+# Metodo para mostrar menu de administracion
+def administrar(request):
+    user_id= request.session.get('id')
+    usuarios = Usuario.objects.all()
+    habitaciones = Habitacion.objects.all()
+
+    if user_id  is not None:
+
+        usuario = Usuario.objects.get(id=user_id) 
+        if usuario:
+            context = {
+                "usuario": usuario,
+                "usuarios": usuarios,
+                "habitaciones": habitaciones,
+            }
+            return render(request, 'admin.html', context)
     return redirect('index')

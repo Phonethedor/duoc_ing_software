@@ -4,7 +4,7 @@
 <div class="container pl-5">
     {% if usuario.tipo == 1 %}
     <h1>Admin</h1>
-    <p>Esta es la página de administrador</p>
+    <p>Panel de administrador</p>
         {% if usuarios %}
         <h2>Lista de usuarios</h2>
         <table class="table table-striped mb-2">
@@ -37,6 +37,7 @@
         {% else %}
             <h2>No hay usuarios</h2>
         {% endif %}
+            <a href="" class="btn btn-primary my-2">Agregar usuario</a>
         {% if habitaciones %}
         <h2>Lista de habitaciones</h2>
         <table class="table table-striped mb-2">
@@ -73,6 +74,7 @@
         {% else %}
             <h2>No hay habitaciones</h2>
         {% endif %}
+            <a href="" class="btn btn-primary my-2">Agregar habitacion</a>
     {% else %}
         <h1>Debe iniciar sesión como administrador</h1>
     {% endif %}
