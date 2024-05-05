@@ -3,7 +3,6 @@ from .models import *
 
 '''
     TODO:
-    - implementar registro de reservas (comun)
     - implementar registro de habitaciones (admin)
     - implementar modificacion de usuario (comun)
     - implementar modificacion de usuario (admin)
@@ -60,6 +59,21 @@ def reservar(request):
         habitacion.disponible = False
         habitacion.save()
         return redirect('index')
+    return redirect('index')
+
+def reservas(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+
+        usuario = Usuario.objects.get(id=user_id) 
+        reservas = Reserva.objects.filter(usuario=usuario)
+        if usuario:
+            context = {
+                "usuario": usuario,
+                "reservas": reservas,
+            }
+            return render(request, 'reservas.html', context)
     return redirect('index')
 
 def registro(request):

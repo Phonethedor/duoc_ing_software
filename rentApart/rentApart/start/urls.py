@@ -10,6 +10,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('reserva/', reserva, name='reserva'),
     path('reservar/', reservar, name='reservar'),
+    path('reservas/', reservas, name='reservas'),
     path('registro/', registro, name='registro'),
     path('register/', register, name='register'),
     path('ingresar/', ingresar, name='ingresar'),

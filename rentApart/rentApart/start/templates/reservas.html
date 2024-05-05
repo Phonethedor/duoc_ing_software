@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="container pl-5">
+    {% if usuario %}
+        <h1 class="mb-3">Reservas</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha de inicio</th>
+                    <th scope="col">Fecha de fin</th>
+                    <th scope="col">Habitación</th>
+                    <th scope="col">Metodo de pago</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.fecha_inicio }}</td>
+                    <td>{{ reserva.fecha_fin }}</td>
+                    <td>{{ reserva.habitacion.nombre }}</td>
+                    <td>{{ reserva.metodo_pago.nombre }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    {% else %}
+        <h1>Debe iniciar sesión para acceder a la reserva</h1>
+{% endif %}
+</div>
+{% endblock %}
