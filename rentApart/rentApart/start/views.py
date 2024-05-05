@@ -10,6 +10,7 @@ from .models import *
     - implementar vista de historial de reservas (admin)
 '''
 
+# Metodo para mostrar index
 def index(request):
     user_id= request.session.get('id')
 
@@ -23,6 +24,7 @@ def index(request):
             return render(request, 'index.html', context)
     return render(request, 'index.html')
 
+# metodo para mostrar formulario de reserva
 def reserva(request):
     user_id= request.session.get('id')
 
@@ -61,6 +63,7 @@ def reservar(request):
         return redirect('index')
     return redirect('index')
 
+# Metodo para mostrar reservas de usuario
 def reservas(request):
     user_id= request.session.get('id')
 
@@ -76,6 +79,7 @@ def reservas(request):
             return render(request, 'reservas.html', context)
     return redirect('index')
 
+# Metodo para mostrar formulario de registro
 def registro(request):
     return render(request, 'registro.html')
 
@@ -89,6 +93,7 @@ def register(request):
     Usuario.objects.create(email=correo, nombre=nombre, apellido=apellido, password = password, tipo=2)
     return redirect('index')
 
+# Metodo para mostrar formulario de login
 def ingresar(request):
     return render(request, 'login.html')
 
