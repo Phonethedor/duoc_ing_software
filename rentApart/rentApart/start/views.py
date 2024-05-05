@@ -171,3 +171,28 @@ def administrar(request):
             }
             return render(request, 'admin.html', context)
     return redirect('index')
+
+# Metodo para mostrar formulario de registro de usuario (admin)
+def admin_crear_cuenta(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+            
+            usuario = Usuario.objects.get(id=user_id) 
+            if usuario:
+                context = {
+                    "usuario": usuario,
+                }
+                return render(request, 'admin_crear_cuenta.html', context)
+    return redirect('index')
+
+# Metodo de registro de usuario (admin), redirecciona a administrar
+def admin_register(request):
+    correo = request.POST['email']
+    nombre = request.POST['nombre']
+    apellido = request.POST['apellido']
+    password = request.POST['password']
+    tipo = request.POST['tipo']
+
+    Usuario.objects.create(email=correo, nombre=nombre, apellido=apellido, password = password, tipo=tipo)
+    return redirect('administrar')

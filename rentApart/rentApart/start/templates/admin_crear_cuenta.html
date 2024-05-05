@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="container pl-5">
+    {% if usuario.tipo == 1 %}
+    <h1>Registro de usuario</h1>
+    <form action="{% url 'admin_register' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" id="tipo" name="tipo">
+                <option value="1">Administrador</option>
+                <option value="2">Usuario</option>
+            </select>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    {% else %}
+        <h1>Debe iniciar sesión como administrador</h1>
+    {% endif %}
+</div>
+{% endblock %}
