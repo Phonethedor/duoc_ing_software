@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <div class="container pl-5">
+        {% if usuario.tipo == 1 %}
+        <h1>Administrar Cuenta</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correo" name="correo">
+            </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo</label>
+                <select class="form-select" id="tipo" name="tipo">
+                    <option value="1">Administrador</option>
+                    <option value="2">Cliente</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+        {% else %}
+        <h1>Debe iniciar sesión como administrador para acceder a esta página</h1>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="container pl-5">
+    {% if usuario %}
+        {% if usuario.tipo == 1 %}
+            <h2>Agregar habitacion</h2>
+            <form class="mb-4" action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio">
+                </div>
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">categoria</label>
+                    <select class="form-select" id="habitacion" name="habitacion">
+                        {% for categoria in categoriass %}
+                        <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        {% if habitaciones %}
+            <h1>Habitaciones</h1>
+            <p>Lista de habitaciones</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Disponibilidad</th>
+                        <th scope="col">Acciones</th>
+                        {% if usuario.tipo == 1 %}
+                            <th scope="col">Historial</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for habitacion in habitaciones %}
+                        <tr>
+                            <th scope="row">{{ habitacion.id }}</th>
+                            <td>{{ habitacion.nombre }}</td>
+                            <td>{{ habitacion.precio }}</td>
+                            {% if habitacion.disponible %}
+                                <td>Disponible</td>
+                            {% else %}
+                                <td>No disponible</td>
+                            {% endif %}
+                            <td>
+                                {% if habitacion.disponible %}
+                                    <a href="" class="btn btn-primary">Reservar</a>
+                                {% else %}
+                                    <td>no disponible</td>
+                                {% endif %}
+                            </td>
+                            {% if usuario.tipo == 1 %}
+                                <td>
+                                    <a href="" class="btn btn-primary">Historial</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        {% else %}
+            <h1>No hay habitaciones disponibles</h1>
+    {% else %}
+        <h1>Debe iniciar sesión para acceder a las habitaciones</h1>
+    {% endif %}
+    </div>
+{% endblock %}

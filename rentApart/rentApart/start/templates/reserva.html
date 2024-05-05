@@ -1,1 +1,30 @@
-<h3>meh</h3>
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="container pl-5">
+    {% if usuario %}
+    <h3>Reserva</h3>
+    <form action="{% url 'reserva' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="fecha_inicio" class="form-label">Fecha de inicio</label>
+            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio">
+        </div>
+        <div class="mb-3">
+            <label for="fecha_fin" class="form-label">Fecha de fin</label>
+            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin">
+        </div>
+        <div class="mb-3">
+            <label for="habitacion" class="form-label">Habitación</label>
+            <select class="form-select" id="habitacion" name="habitacion">
+                {% for habitacion in habitaciones %}
+                <option value="{{ habitacion.id }}">{{ habitacion.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Reservar</button>
+    {% else %}
+    <h1>Debe iniciar sesión para acceder a la reserva</h1>
+    {% endif %}
+</div>
+{% endblock %}

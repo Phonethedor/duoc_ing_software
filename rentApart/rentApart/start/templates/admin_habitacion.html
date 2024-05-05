@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <div class="container pl-5">
+        {% if usuario.tipo == 1 %}
+        <h1>Administracion de habitacion</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio">
+                </div>
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">categoria</label>
+                    <select class="form-select" id="habitacion" name="habitacion">
+                        {% for categoria in categoriass %}
+                        <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        {% else %}
+        <h1>Debe iniciar sesión como administrador para acceder a esta página</h1>
+        {% endif %}
+    </div>
+{% endblock %}

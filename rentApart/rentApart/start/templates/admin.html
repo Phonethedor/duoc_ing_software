@@ -1,0 +1,80 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="container pl-5">
+    {% if usuario.tipo == 1 %}
+    <h1>Admin</h1>
+    <p>Esta es la página de administrador</p>
+        {% if usuarios %}
+        <h2>Lista de usuarios</h2>
+        <table class="table table-striped mb-2">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in usuarios %}
+                <tr>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.nombre }}</td>
+                    <td>{{ user.apellido }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.tipo }}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h2>No hay usuarios</h2>
+        {% endif %}
+        {% if habitaciones %}
+        <h2>Lista de habitaciones</h2>
+        <table class="table table-striped mb-2">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Disponible</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for habitacion in habitaciones %}
+                <tr>
+                    <th scope="row">{{ habitacion.id }}</th>
+                    <td>{{ habitacion.nombre }}</td>
+                    <td>{{ habitacion.precio }}</td>
+                    {% if habitacion.disponible %}
+                        <td>Si</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{ habitacion.categoria.nombre }}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h2>No hay habitaciones</h2>
+        {% endif %}
+    {% else %}
+        <h1>Debe iniciar sesión como administrador</h1>
+    {% endif %}
+</div>
+{% endblock %}
