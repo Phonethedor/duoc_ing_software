@@ -27,14 +27,14 @@
                     <td>{{ user.email }}</td>
                     <td>{{ user.tipo }}</td>
                     <td>
-                        <form action="{% url 'admin_editar_usuario' %} " method="POST">
+                        <form class="m-1" action="{% url 'admin_editar_usuario' %} " method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ user.id }}">
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </form>
                     </td>
                     <td>
-                        <form action="{% url 'admin_eliminar_usuario' %}" method="POST">
+                        <form class="m-1" action="{% url 'admin_eliminar_usuario' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ user.id }}">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -74,9 +74,13 @@
                     {% endif %}
                     <td>{{ habitacion.categoria.nombre }}</td>
                     <td>
-                        <a href="" class="btn btn-primary">Editar</a>
+                        <form class="m-1" action="{% url 'admin_editar_habitacion' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ habitacion.id }}">
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </form>
                         <a href="" class="btn btn-secondary">Ver Historial</a>
-                        <form action="{% url 'admin_eliminar_habitacion' %}" method="POST">
+                        <form class="m-1" action="{% url 'admin_eliminar_habitacion' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ habitacion.id }}">
                             <button type="submit" class="btn btn-danger">Eliminar</button>

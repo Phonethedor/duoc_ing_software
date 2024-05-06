@@ -8,16 +8,16 @@
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ habitacion.nombre }}">
                 </div>
                 <div class="mb-3">
                     <label for="precio" class="form-label">Precio</label>
-                    <input type="number" class="form-control" id="precio" name="precio">
+                    <input type="number" class="form-control" id="precio" name="precio"  value="{{ habitacion.precio }}">
                 </div>
                 <div class="mb-3">
                     <label for="categoria" class="form-label">categoria</label>
-                    <select class="form-select" id="habitacion" name="habitacion">
-                        {% for categoria in categoriass %}
+                    <select class="form-select" id="habitacion" name="habitacion" default="{{ habitacion.categoria.id }}">
+                        {% for categoria in categorias %}
                         <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
                         {% endfor %}
                     </select>

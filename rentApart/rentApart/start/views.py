@@ -206,6 +206,44 @@ def admin_eliminar_usuario(request):
             return redirect('administrar')
     return redirect('index')
 
+# Metodo para mostrar formulario para modificar usuario a travez de su id (admin)
+def admin_editar_usuario(request):
+    user_id = request.session.get('id')
+    user_mod_id= request.POST['id']
+
+    usuario= Usuario.objects.get(id=user_id)
+    usuario_modificar = Usuario.objects.get(id=user_mod_id) 
+    if usuario:
+        context = {
+            "usuario": usuario,
+            "usuario_modificar": usuario_modificar,
+        }
+        return render(request, 'admin_cuenta.html', context)
+    return redirect('index')
+
+def admin_cuenta_update(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+
+        id = request.POST['id']
+        usuario = Usuario.objects.get(id=id) 
+        if usuario:
+            correo = request.POST['email']
+            nombre = request.POST['nombre']
+            apellido = request.POST['apellido']
+            password = request.POST['password']
+            tipo = request.POST['tipo']
+
+            usuario.email = correo
+            usuario.nombre = nombre
+            usuario.apellido = apellido
+            usuario.password = password
+            usuario.tipo = tipo
+            usuario.save()
+            return redirect('administrar')
+    return redirect('index')
+
 # metodo para mostrar formulario de registro de habitacion (admin)
 def admin_crear_habitacion(request):
     user_id= request.session.get('id')
@@ -251,40 +289,19 @@ def admin_eliminar_habitacion(request):
             return redirect('administrar')
     return redirect('index')
 
-# Metodo para mostrar formulario para modificar usuario a travez de su id (admin)
-def admin_editar_usuario(request):
+# Metodo para editar habitacion a travez de su id (admin)
+def admin_editar_habitacion(request):
     user_id = request.session.get('id')
-    user_mod_id= request.POST['id']
+    habitacion_id= request.POST['id']
 
-    usuario= Usuario.objects.get(id=user_id)
-    usuario_modificar = Usuario.objects.get(id=user_mod_id) 
-    if usuario:
+    usuario = Usuario.objects.get(id=user_id)
+    habitacion_modificar = Habitacion.objects.get(id=habitacion_id) 
+    categoria = CategoriaHabitacion.objects.all()
+    if admin_editar_usuario:
         context = {
             "usuario": usuario,
-            "usuario_modificar": usuario_modificar,
+            "habitacion": habitacion_modificar,
+            "categorias": categoria,
         }
-        return render(request, 'admin_cuenta.html', context)
-    return redirect('index')
-
-def admin_cuenta_update(request):
-    user_id= request.session.get('id')
-
-    if user_id  is not None:
-
-        id = request.POST['id']
-        usuario = Usuario.objects.get(id=id) 
-        if usuario:
-            correo = request.POST['email']
-            nombre = request.POST['nombre']
-            apellido = request.POST['apellido']
-            password = request.POST['password']
-            tipo = request.POST['tipo']
-
-            usuario.email = correo
-            usuario.nombre = nombre
-            usuario.apellido = apellido
-            usuario.password = password
-            usuario.tipo = tipo
-            usuario.save()
-            return redirect('administrar')
+        return render(request, 'admin_habitacion.html', context)
     return redirect('index')
