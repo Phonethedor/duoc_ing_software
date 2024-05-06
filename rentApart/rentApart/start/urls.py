@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin_register_habitacion/', admin_register_habitacion, name='admin_register_habitacion'),
     path('admin_eliminar_habitacion/', admin_eliminar_habitacion, name='admin_eliminar_habitacion'),
     path('admin_editar_habitacion/', admin_editar_habitacion, name='admin_editar_habitacion'),
+    path('admin_historial_habitacion/', admin_historial_habitacion, name='admin_historial_habitacion'),
 ]

@@ -3,7 +3,6 @@ from .models import *
 
 '''
     TODO:
-    - implementar modificacion de habitaciones (admin)
     - implementar vista de historial de reservas por habitacion (admin)
 '''
 
@@ -304,4 +303,20 @@ def admin_editar_habitacion(request):
             "categorias": categoria,
         }
         return render(request, 'admin_habitacion.html', context)
+    return redirect('index')
+
+# Metodo para ver historial de reservas por habitacion (admin)
+def admin_historial_habitacion(request):
+    user_id = request.session.get('id')
+    habitacion_id= request.POST['id']
+
+    usuario = Usuario.objects.get(id=user_id)
+    habitacion = Habitacion.objects.get(id=habitacion_id)
+    reservas = Reserva.objects.filter(habitacion=habitacion)
+    if usuario:
+        context = {
+            "usuario": usuario,
+            "reservas": reservas,
+        }
+        return render(request, 'historial_habitacion.html', context)
     return redirect('index')

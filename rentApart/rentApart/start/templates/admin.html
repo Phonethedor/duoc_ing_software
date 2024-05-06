@@ -79,7 +79,11 @@
                             <input type="hidden" name="id" value="{{ habitacion.id }}">
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </form>
-                        <a href="" class="btn btn-secondary">Ver Historial</a>
+                        <form class="m-1" action="{% url 'admin_historial_habitacion' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ habitacion.id }}">
+                            <button type="submit" class="btn btn-secondary">Ver Historial</a>
+                        </form>
                         <form class="m-1" action="{% url 'admin_eliminar_habitacion' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ habitacion.id }}">

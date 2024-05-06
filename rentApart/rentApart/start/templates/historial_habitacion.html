@@ -3,26 +3,31 @@
 {% block content %}
     <div class="container pl-5">
         {% if usuario.tipo == 1 %}
-        <h1>Historial</h1>
-        <p>Historial de reservas por habitacion</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id Reserva</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for reserva in reservas %}
-                <tr>
-                    <th scope="row">{{ reserva.id }}</th>
-                    <td>{{ reserva.habitacion.nombre }}</td>
-                    <td>{{ reserva.habitacion.precio }}</td>
-                    <td>{{ reserva.cliente.nombre }} {{ reserva.cliente.apellido }}</td>
-            </tbody>
+            <h1>Historial</h1>
+            <p>Historial de reservas por habitacion</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id Reserva</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col">Fecha Inicio</th>
+                        <th scope="col">Fecha Fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reserva in reservas %}
+                    <tr>
+                        <th scope="row">{{ reserva.id }}</th>
+                        <td>{{ reserva.habitacion.nombre }}</td>
+                        <td>{{ reserva.habitacion.precio }}</td>
+                        <td>{{ reserva.cliente.nombre }} {{ reserva.cliente.apellido }}</td>
+                        <td>{{ reserva.fecha_inicio }}</td>
+                        <td>{{ reserva.fecha_fin }}</td>
+                    {% endfor %}
+                </tbody>
         {% else %}
         <h1>Debe iniciar sesión como administrador para acceder al historial</h1>
         {% endif %}
