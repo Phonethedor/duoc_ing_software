@@ -4,23 +4,27 @@
     <div class="container pl-5">
         {% if usuario.tipo == 1 %}
         <h1>Administrar Cuenta</h1>
-        <form action="" method="POST">
+        <form action="{% url 'admin_cuenta_update' %}" method="POST">
             {% csrf_token %}
+            <input type="hidden" name="id" value="{{ usuario_modificar.id }}">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ usuario_modificar.nombre }}">
             </div>
             <div class="mb-3">
                 <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" name="apellido">
+                <input type="text" class="form-control" id="apellido" name="apellido" value="{{ usuario_modificar.apellido }}">
             </div>
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="correo" name="correo">
+                <input type="email" class="form-control" id="email" name="email" value="{{ usuario_modificar.email }}">
             </div>
             <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" value="{{ usuario_modificar.password }}">
+            <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo</label>
-                <select class="form-select" id="tipo" name="tipo">
+                <select class="form-select" id="tipo" name="tipo" value="{{ usuario_modificar.tipo }}">
                     <option value="1">Administrador</option>
                     <option value="2">Cliente</option>
                 </select>

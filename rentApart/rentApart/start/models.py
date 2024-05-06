@@ -43,10 +43,3 @@ class Reserva(models.Model):
     def __str__(self):
         return self.usuario.nombre + ' ' + self.usuario.apellido + ' ' + self.habitacion.nombre
     
-class Informe(models.Model):
-    fecha = models.DateField()
-    descripcion = models.TextField()
-    reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.usuario.nombre + ' ' + self.usuario.apellido

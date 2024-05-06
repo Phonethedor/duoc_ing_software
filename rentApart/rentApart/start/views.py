@@ -3,10 +3,8 @@ from .models import *
 
 '''
     TODO:
-    - implementar registro de habitaciones (admin)
-    - implementar modificacion de usuario (admin)
     - implementar modificacion de habitaciones (admin)
-    - implementar vista de historial de reservas (admin)
+    - implementar vista de historial de reservas por habitacion (admin)
 '''
 
 # Metodo para mostrar index
@@ -196,6 +194,18 @@ def admin_register(request):
     Usuario.objects.create(email=correo, nombre=nombre, apellido=apellido, password = password, tipo=tipo)
     return redirect('administrar')
 
+# Metodo para eliminar usuario a travez de su id (admin)
+def admin_eliminar_usuario(request):
+    user_id= request.POST['id']
+
+    if user_id  is not None:
+            
+            usuario = Usuario.objects.get(id=user_id)             
+            usuario.delete()
+
+            return redirect('administrar')
+    return redirect('index')
+
 # metodo para mostrar formulario de registro de habitacion (admin)
 def admin_crear_habitacion(request):
     user_id= request.session.get('id')
@@ -227,4 +237,54 @@ def admin_register_habitacion(request):
 
                 Habitacion.objects.create(nombre=nombre, precio=precio, disponible=disponible, categoria=categoria)
                 return redirect('administrar')
+    return redirect('index')
+
+# Metodo para eliminar habitacion a travez de su id (admin)
+def admin_eliminar_habitacion(request):
+    habitacion_id= request.POST['id']
+
+    if habitacion_id  is not None:
+            
+            habitacion = Habitacion.objects.get(id=habitacion_id)             
+            habitacion.delete()
+
+            return redirect('administrar')
+    return redirect('index')
+
+# Metodo para mostrar formulario para modificar usuario a travez de su id (admin)
+def admin_editar_usuario(request):
+    user_id = request.session.get('id')
+    user_mod_id= request.POST['id']
+
+    usuario= Usuario.objects.get(id=user_id)
+    usuario_modificar = Usuario.objects.get(id=user_mod_id) 
+    if usuario:
+        context = {
+            "usuario": usuario,
+            "usuario_modificar": usuario_modificar,
+        }
+        return render(request, 'admin_cuenta.html', context)
+    return redirect('index')
+
+def admin_cuenta_update(request):
+    user_id= request.session.get('id')
+
+    if user_id  is not None:
+
+        id = request.POST['id']
+        usuario = Usuario.objects.get(id=id) 
+        if usuario:
+            correo = request.POST['email']
+            nombre = request.POST['nombre']
+            apellido = request.POST['apellido']
+            password = request.POST['password']
+            tipo = request.POST['tipo']
+
+            usuario.email = correo
+            usuario.nombre = nombre
+            usuario.apellido = apellido
+            usuario.password = password
+            usuario.tipo = tipo
+            usuario.save()
+            return redirect('administrar')
     return redirect('index')
